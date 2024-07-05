@@ -78,7 +78,7 @@ public class PhoneController extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/phone");
         } else {
             req.setAttribute("message", "Thông tin không hợp lệ. Vui lòng điền đầy đủ các trường.");
-            req.getRequestDispatcher("/phoneAdmin/create.jsp").forward(req, resp);
+            req.getRequestDispatcher("/phoneAdmin/createAD.jsp").forward(req, resp);
         }
     }
 }
