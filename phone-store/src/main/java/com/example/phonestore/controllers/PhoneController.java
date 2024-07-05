@@ -58,9 +58,30 @@ public class PhoneController extends HttpServlet {
             case "create":
                 createPhone(req, resp);
                 break;
+            case "delete":
+                deletePhone(req, resp);
         }
     }
 
+    private void deletePhone(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        int phoneId = 0;
+        if (req.getParameter("id") != null) {
+            try {
+                phoneId = Integer.parseInt(req.getParameter("id"));
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+        }
+        if (phoneId != 0) {
+            boolean isDeleted = phoneService.deleteById(phoneId);
+            if (!isDeleted) {
+                req.setAttribute("message", "Xóa không thành công.");
+            }
+        } else {
+            req.setAttribute("message", "ID không hợp lệ.");
+        }
+        resp.sendRedirect(req.getContextPath() + "/phone");
+    }
     private void createPhone(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
         String img = req.getParameter("img");

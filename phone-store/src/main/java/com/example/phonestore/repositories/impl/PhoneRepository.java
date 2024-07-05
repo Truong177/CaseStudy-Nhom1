@@ -59,4 +59,18 @@ public class PhoneRepository implements IPhoneRepository {
         }
 
     }
+
+    @Override
+    public boolean deleteById(int phoneId) {
+        boolean isDeleted;
+        try {
+            PreparedStatement statement = BaseRepository.getConnection()
+                    .prepareStatement("DELETE FROM product WHERE id_product = ?");
+            statement.setLong(1, phoneId);
+            isDeleted = statement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return isDeleted;
+    }
 }
