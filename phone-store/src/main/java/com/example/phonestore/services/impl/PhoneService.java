@@ -18,4 +18,9 @@ public class PhoneService implements IPhoneService {
     public void savePhone(Phone phone) {
         phoneRepository.savePhone(phone);
     }
+
+    @Override
+    public boolean deleteById(int phoneId) {
+        return phoneRepository.deleteById(phoneId);
+    }
 }

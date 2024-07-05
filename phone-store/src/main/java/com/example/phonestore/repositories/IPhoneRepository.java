@@ -8,4 +8,6 @@ public interface IPhoneRepository {
     List<Phone> findAll();
 
     void savePhone(Phone phone);
+
+    boolean deleteById(int phoneId);
 }
