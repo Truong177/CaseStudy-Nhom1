@@ -13,4 +13,9 @@ public class PhoneService implements IPhoneService {
     public List<Phone> findAll() {
         return phoneRepository.findAll();
     }
+
+    @Override
+    public void savePhone(Phone phone) {
+        phoneRepository.savePhone(phone);
+    }
 }

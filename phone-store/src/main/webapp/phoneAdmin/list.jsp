@@ -123,12 +123,12 @@
                 <td>${status.count}</td>
                 <td>${phone.name}</td>
                 <td>${phone.manufacture}</td>
-                <td>${phone.price}</td>
+                <td>${phone.price} VND</td>
                 <td>${phone.quantity}</td>
-                <td>${phone.size}</td>
+                <td>${phone.size} inches</td>
                 <td>${phone.color}</td>
-                <td>${phone.ram}</td>
-                <td>${phone.batery}</td>
+                <td>${phone.ram} GB</td>
+                <td>${phone.batery} mAH</td>
                 <td><img src="${phone.img}" alt="${phone.name}" style="width: 50px; height: 50px;"></td>
                 <td>
                     <a href="/phone?action=edit&id=${phone.id}" class="btn btn-warning">Sửa</a>

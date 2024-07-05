@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IPhoneService {
     List<Phone> findAll();
+
+    void savePhone(Phone phone);
 }
