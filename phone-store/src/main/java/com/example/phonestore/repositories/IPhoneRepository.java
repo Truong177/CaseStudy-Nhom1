@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IPhoneRepository {
     List<Phone> findAll();
+
+    void savePhone(Phone phone);
 }

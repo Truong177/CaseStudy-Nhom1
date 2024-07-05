@@ -15,6 +15,29 @@ public class Phone {
     public Phone() {
     }
 
+    public Phone(String name, String manufacture, double price, int quantity, float size, String color, int ram, int batery) {
+        this.name = name;
+        this.manufacture = manufacture;
+        this.price = price;
+        this.quantity = quantity;
+        this.size = size;
+        this.color = color;
+        this.ram = ram;
+        this.batery = batery;
+    }
+
+    public Phone(String name, String img, String manufacture, double price, int quantity, float size, String color, int ram, int batery) {
+        this.name = name;
+        this.img = img;
+        this.manufacture = manufacture;
+        this.price = price;
+        this.quantity = quantity;
+        this.size = size;
+        this.color = color;
+        this.ram = ram;
+        this.batery = batery;
+    }
+
     public String getManufacture() {
         return manufacture;
     }
