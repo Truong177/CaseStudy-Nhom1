@@ -73,4 +73,33 @@ public class PhoneRepository implements IPhoneRepository {
         }
         return isDeleted;
     }
+
+    @Override
+    public List<Phone> findByName(String name) {
+        List<Phone> result = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = BaseRepository.getConnection().
+                    prepareStatement("SELECT id_product, name_product, image, manufacture, price, quantity, size, color, ram, battery FROM product WHERE name_product LIKE ?");
+            preparedStatement.setString(1, "%" + name + "%");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id_product");
+                String phoneName = resultSet.getString("name_product");
+                String image = resultSet.getString("image");
+                String manufacture = resultSet.getString("manufacture");
+                double price = resultSet.getDouble("price");
+                int quantity = resultSet.getInt("quantity");
+                float size = resultSet.getFloat("size");
+                String color = resultSet.getString("color");
+                int ram = resultSet.getInt("ram");
+                int battery = resultSet.getInt("battery");
+
+                Phone phone = new Phone(id, phoneName, image, manufacture, price, quantity, size, color, ram, battery);
+                result.add(phone);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
 }

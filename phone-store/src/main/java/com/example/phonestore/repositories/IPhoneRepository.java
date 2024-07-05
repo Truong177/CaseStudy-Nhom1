@@ -10,4 +10,6 @@ public interface IPhoneRepository {
     void savePhone(Phone phone);
 
     boolean deleteById(int phoneId);
+
+    List<Phone> findByName(String name);
 }
