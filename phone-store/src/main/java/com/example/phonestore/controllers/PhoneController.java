@@ -60,7 +60,18 @@ public class PhoneController extends HttpServlet {
                 break;
             case "delete":
                 deletePhone(req, resp);
+                break;
+            case "search":
+                searchPhone(req,resp);
+                break;
         }
+    }
+
+    private void searchPhone(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String search = req.getParameter("search");
+        List<Phone> phones = phoneService.findByName(search);
+        req.setAttribute("phones", phones);
+        req.getRequestDispatcher("/phoneAdmin/list.jsp").forward(req, resp);
     }
 
     private void deletePhone(HttpServletRequest req, HttpServletResponse resp) throws IOException {

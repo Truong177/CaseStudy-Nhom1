@@ -10,4 +10,6 @@ public interface IPhoneService {
     void savePhone(Phone phone);
 
     boolean deleteById(int phoneId);
+
+    List<Phone> findByName(String name);
 }

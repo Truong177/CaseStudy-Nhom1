@@ -23,4 +23,9 @@ public class PhoneService implements IPhoneService {
     public boolean deleteById(int phoneId) {
         return phoneRepository.deleteById(phoneId);
     }
+
+    @Override
+    public List<Phone> findByName(String name) {
+        return phoneRepository.findByName(name);
+    }
 }
