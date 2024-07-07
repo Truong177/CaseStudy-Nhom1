@@ -102,4 +102,54 @@ public class PhoneRepository implements IPhoneRepository {
         }
         return result;
     }
+
+    @Override
+    public Phone findById(int id) {
+        Phone phone = null;
+        try {
+            PreparedStatement preparedStatement = BaseRepository.getConnection().
+                    prepareStatement("select * from product where id_product = ?");
+            preparedStatement.setInt(1,id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()){
+                String phoneName = resultSet.getString("name_product");
+                String image = resultSet.getString("image");
+                String manufacture = resultSet.getString("manufacture");
+                double price = resultSet.getDouble("price");
+                int quantity = resultSet.getInt("quantity");
+                float size = resultSet.getFloat("size");
+                String color = resultSet.getString("color");
+                int ram = resultSet.getInt("ram");
+                int battery = resultSet.getInt("battery");
+                phone = new Phone(id, phoneName, image, manufacture, price, quantity, size, color, ram, battery);
+
+            }        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return phone;
+    }
+
+    @Override
+    public void update(int id, Phone phone) {
+        try {
+            PreparedStatement preparedStatement = BaseRepository.getConnection()
+                    .prepareStatement("UPDATE product SET name_product = ?, image = ?, manufacture = ?, price = ?, quantity = ?, size = ?, color = ?, ram = ?, battery = ? WHERE id_product = ?");
+
+            preparedStatement.setString(1, phone.getName());
+            preparedStatement.setString(2, phone.getImg());
+            preparedStatement.setString(3, phone.getManufacture());
+            preparedStatement.setDouble(4, phone.getPrice());
+            preparedStatement.setInt(5, phone.getQuantity());
+            preparedStatement.setFloat(6, phone.getSize());
+            preparedStatement.setString(7, phone.getColor());
+            preparedStatement.setInt(8, phone.getRam());
+            preparedStatement.setInt(9, phone.getBatery());
+            preparedStatement.setInt(10, phone.getId());
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }

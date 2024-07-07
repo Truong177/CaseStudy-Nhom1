@@ -28,4 +28,14 @@ public class PhoneService implements IPhoneService {
     public List<Phone> findByName(String name) {
         return phoneRepository.findByName(name);
     }
+
+    @Override
+    public Phone findById(int id) {
+        return phoneRepository.findById(id);
+    }
+
+    @Override
+    public void update(int id, Phone phone) {
+        phoneRepository.update(id,phone);
+    }
 }
