@@ -5,17 +5,17 @@ public class Phone {
     private String name;
     private String img;
     private String manufacture;
-    private double price;
+    private Long price;
     private int quantity;
     private float size;
     private String color;
     private int ram;
-    private int batery;
+    private int battery;
 
     public Phone() {
     }
 
-    public Phone(String name, String manufacture, double price, int quantity, float size, String color, int ram, int batery) {
+    public Phone(String name, String manufacture, Long price, int quantity, float size, String color, int ram, int battery) {
         this.name = name;
         this.manufacture = manufacture;
         this.price = price;
@@ -23,10 +23,10 @@ public class Phone {
         this.size = size;
         this.color = color;
         this.ram = ram;
-        this.batery = batery;
+        this.battery = battery;
     }
 
-    public Phone(String name, String img, String manufacture, double price, int quantity, float size, String color, int ram, int batery) {
+    public Phone(String name, String img, String manufacture, Long price, int quantity, float size, String color, int ram, int battery) {
         this.name = name;
         this.img = img;
         this.manufacture = manufacture;
@@ -35,7 +35,7 @@ public class Phone {
         this.size = size;
         this.color = color;
         this.ram = ram;
-        this.batery = batery;
+        this.battery = battery;
     }
 
     public String getManufacture() {
@@ -46,7 +46,7 @@ public class Phone {
         this.manufacture = manufacture;
     }
 
-    public Phone(int id, String name, String img, String manufacture, double price, int quantity, float size, String color, int ram, int batery) {
+    public Phone(int id, String name, String img, String manufacture, Long price, int quantity, float size, String color, int ram, int battery) {
         this.id = id;
         this.name = name;
         this.img = img;
@@ -56,7 +56,7 @@ public class Phone {
         this.size = size;
         this.color = color;
         this.ram = ram;
-        this.batery = batery;
+        this.battery = battery;
     }
 
     public int getId() {
@@ -84,11 +84,11 @@ public class Phone {
     }
 
 
-    public double getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 
@@ -125,12 +125,12 @@ public class Phone {
         this.ram = ram;
     }
 
-    public int getBatery() {
-        return batery;
+    public int getBattery() {
+        return battery;
     }
 
-    public void setBatery(int batery) {
-        this.batery = batery;
+    public void setBattery(int battery) {
+        this.battery = battery;
     }
 
 }
