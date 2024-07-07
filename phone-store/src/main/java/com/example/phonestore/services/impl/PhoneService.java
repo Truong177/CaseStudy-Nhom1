@@ -30,15 +30,17 @@ public class PhoneService implements IPhoneService {
         return phoneRepository.findByName(name);
     }
 
-    @Override
-    public Phone findById(int id) throws SQLException {
-        return phoneRepository.findById(id);
-    }
+
 
 
     @Override
     public void update(int id, Phone phone) {
         phoneRepository.update(id,phone);
+    }
+
+    @Override
+    public Phone findById(int id) {
+        return phoneRepository.findById(id);
     }
 
 }

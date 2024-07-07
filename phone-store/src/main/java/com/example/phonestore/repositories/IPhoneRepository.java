@@ -14,9 +14,9 @@ public interface IPhoneRepository {
 
     List<Phone> findByName(String name);
 
-    Phone findById(int id) throws SQLException;
 
 
     void update(int id, Phone phone);
 
+    Phone findById(int id);
 }
