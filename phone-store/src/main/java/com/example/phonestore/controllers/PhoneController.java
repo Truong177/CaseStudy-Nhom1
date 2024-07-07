@@ -32,13 +32,23 @@ public class PhoneController extends HttpServlet {
             case "infor":
                 getPhoneInfor(req, resp);
                 break;
+            case "edit":
+                editShowForm(req,resp);
             default:
                 List<Phone> phones = phoneService.findAll();
                 req.setAttribute("phones", phones);
-                req.getRequestDispatcher("/phoneCustomer/home.jsp").forward(req, resp);
-//                req.getRequestDispatcher("/phoneAdmin/list.jsp").forward(req, resp);
+//                req.getRequestDispatcher("/phoneCustomer/home.jsp").forward(req, resp);
+                req.getRequestDispatcher("/phoneAdmin/list.jsp").forward(req, resp);
                 break;
         }
+    }
+
+    private void editShowForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        Phone phone = phoneService.findById(id);
+        req.setAttribute("phone",phone);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/phoneAdmin/edit.jsp");
+        dispatcher.forward(req,resp);
     }
 
     private void getPhoneInfor(HttpServletRequest req, HttpServletResponse resp) {
@@ -85,8 +95,41 @@ public class PhoneController extends HttpServlet {
             case "search":
                 searchPhone(req, resp);
                 break;
+            case "edit":
+                editPhone(req,resp);
         }
     }
+
+    private void editPhone(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        String name = req.getParameter("name");
+        String image = req.getParameter("image");
+        String manufacture = req.getParameter("manufacture");
+        Long price = Long.parseLong(req.getParameter("price"));
+        int quantity = Integer.parseInt(req.getParameter("quantity"));
+        float size = Float.parseFloat(req.getParameter("size"));
+        String color = req.getParameter("color");
+        int ram = Integer.parseInt(req.getParameter("ram"));
+        int battery = Integer.parseInt(req.getParameter("battery"));
+        Phone phone = phoneService.findById(id);
+        if (phone != null) {
+            phone.setName(name);
+            phone.setImg(image);
+            phone.setManufacture(manufacture);
+            phone.setPrice(price);
+            phone.setQuantity(quantity);
+            phone.setSize(size);
+            phone.setColor(color);
+            phone.setRam(ram);
+            phone.setBattery(battery);
+            phoneService.update(id, phone);
+            resp.sendRedirect(req.getContextPath() + "/phone");
+        } else {
+            req.setAttribute("message", "Điện thoại không tồn tại");
+            resp.sendRedirect(req.getContextPath() + "/phone");
+        }
+    }
+
 
     private void searchPhone(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String search = req.getParameter("search");
