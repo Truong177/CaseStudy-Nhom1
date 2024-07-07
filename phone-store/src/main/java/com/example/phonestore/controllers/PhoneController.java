@@ -29,12 +29,32 @@ public class PhoneController extends HttpServlet {
             case "create":
                 showCreateForm(req, resp);
                 break;
+            case "infor":
+                getPhoneInfor(req, resp);
+                break;
             default:
                 List<Phone> phones = phoneService.findAll();
                 req.setAttribute("phones", phones);
-//                req.getRequestDispatcher("/phoneCustomer/home.jsp").forward(req, resp);
-                req.getRequestDispatcher("/phoneAdmin/list.jsp").forward(req, resp);
+                req.getRequestDispatcher("/phoneCustomer/home.jsp").forward(req, resp);
+//                req.getRequestDispatcher("/phoneAdmin/list.jsp").forward(req, resp);
                 break;
+        }
+    }
+
+    private void getPhoneInfor(HttpServletRequest req, HttpServletResponse resp) {
+        int id = Integer.parseInt(req.getParameter("id"));
+        Phone phone = phoneService.findById(id);
+
+        if(phone == null){
+            req.setAttribute("message","Không tìm thấy sản phẩm");
+        } else{
+            req.setAttribute("phone", phone);
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/phoneCustomer/phoneInfor.jsp");
+            try {
+                dispatcher.forward(req, resp);
+            } catch (ServletException | IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
