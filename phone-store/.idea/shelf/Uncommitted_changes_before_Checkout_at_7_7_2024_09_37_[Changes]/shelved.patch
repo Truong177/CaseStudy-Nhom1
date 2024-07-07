@@ -1,0 +1,252 @@
+Index: src/main/java/com/example/phonestore/services/IPhoneService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.phonestore.services;\r\n\r\nimport com.example.phonestore.models.Phone;\r\n\r\nimport java.util.List;\r\n\r\npublic interface IPhoneService {\r\n    List<Phone> findAll();\r\n\r\n    void savePhone(Phone phone);\r\n\r\n    boolean deleteById(int phoneId);\r\n\r\n    List<Phone> findByName(String name);\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/phonestore/services/IPhoneService.java b/src/main/java/com/example/phonestore/services/IPhoneService.java
+--- a/src/main/java/com/example/phonestore/services/IPhoneService.java	(revision 11f0e521718a20dbbc9175cbc708432c4db2f1fa)
++++ b/src/main/java/com/example/phonestore/services/IPhoneService.java	(date 1720174079772)
+@@ -12,4 +12,8 @@
+     boolean deleteById(int phoneId);
+ 
+     List<Phone> findByName(String name);
++
++    Phone findById(int id);
++
++    void update(int id, Phone phone);
+ }
+Index: src/main/java/com/example/phonestore/services/impl/PhoneService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.phonestore.services.impl;\r\n\r\nimport com.example.phonestore.models.Phone;\r\nimport com.example.phonestore.repositories.IPhoneRepository;\r\nimport com.example.phonestore.repositories.impl.PhoneRepository;\r\nimport com.example.phonestore.services.IPhoneService;\r\n\r\nimport java.util.List;\r\n\r\npublic class PhoneService implements IPhoneService {\r\n    private IPhoneRepository phoneRepository = new PhoneRepository();\r\n    @Override\r\n    public List<Phone> findAll() {\r\n        return phoneRepository.findAll();\r\n    }\r\n\r\n    @Override\r\n    public void savePhone(Phone phone) {\r\n        phoneRepository.savePhone(phone);\r\n    }\r\n\r\n    @Override\r\n    public boolean deleteById(int phoneId) {\r\n        return phoneRepository.deleteById(phoneId);\r\n    }\r\n\r\n    @Override\r\n    public List<Phone> findByName(String name) {\r\n        return phoneRepository.findByName(name);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/phonestore/services/impl/PhoneService.java b/src/main/java/com/example/phonestore/services/impl/PhoneService.java
+--- a/src/main/java/com/example/phonestore/services/impl/PhoneService.java	(revision 11f0e521718a20dbbc9175cbc708432c4db2f1fa)
++++ b/src/main/java/com/example/phonestore/services/impl/PhoneService.java	(date 1720174079784)
+@@ -28,4 +28,14 @@
+     public List<Phone> findByName(String name) {
+         return phoneRepository.findByName(name);
+     }
++
++    @Override
++    public Phone findById(int id) {
++        return phoneRepository.findById(id);
++    }
++
++    @Override
++    public void update(int id, Phone phone) {
++        phoneRepository.update(id,phone);
++    }
+ }
+Index: src/main/java/com/example/phonestore/controllers/PhoneController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.phonestore.controllers;\r\n\r\nimport com.example.phonestore.models.Phone;\r\nimport com.example.phonestore.services.IPhoneService;\r\nimport com.example.phonestore.services.impl.PhoneService;\r\n\r\nimport javax.servlet.RequestDispatcher;\r\nimport javax.servlet.ServletException;\r\nimport javax.servlet.annotation.WebServlet;\r\nimport javax.servlet.http.HttpServlet;\r\nimport javax.servlet.http.HttpServletRequest;\r\nimport javax.servlet.http.HttpServletResponse;\r\nimport java.io.IOException;\r\nimport java.util.List;\r\n\r\n@WebServlet(name = \"PhoneController\", value = \"/phone\")\r\npublic class PhoneController extends HttpServlet {\r\n    private IPhoneService phoneService = new PhoneService();\r\n\r\n    @Override\r\n    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {\r\n        req.setCharacterEncoding(\"UTF-8\");\r\n        resp.setCharacterEncoding(\"UTF-8\");\r\n        String action = req.getParameter(\"action\");\r\n        if (action == null) {\r\n            action = \"\";\r\n        }\r\n        switch (action) {\r\n            case \"create\":\r\n                showCreateForm(req, resp);\r\n                break;\r\n            default:\r\n                List<Phone> phones = phoneService.findAll();\r\n                req.setAttribute(\"phones\", phones);\r\n                req.getRequestDispatcher(\"/phoneAdmin/list.jsp\").forward(req, resp);\r\n                break;\r\n        }\r\n    }\r\n\r\n    private void showCreateForm(HttpServletRequest req, HttpServletResponse resp) {\r\n        RequestDispatcher dispatcher = req.getRequestDispatcher(\"/phoneAdmin/createAD.jsp\");\r\n        try {\r\n            dispatcher.forward(req, resp);\r\n        } catch (ServletException | IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    @Override\r\n    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {\r\n        req.setCharacterEncoding(\"UTF-8\");\r\n        resp.setCharacterEncoding(\"UTF-8\");\r\n        String action = req.getParameter(\"action\");\r\n        if (action == null) {\r\n            action = \"\";\r\n        }\r\n        switch (action) {\r\n            case \"create\":\r\n                createPhone(req, resp);\r\n                break;\r\n            case \"delete\":\r\n                deletePhone(req, resp);\r\n                break;\r\n            case \"search\":\r\n                searchPhone(req,resp);\r\n                break;\r\n        }\r\n    }\r\n\r\n    private void searchPhone(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {\r\n        String search = req.getParameter(\"search\");\r\n        List<Phone> phones = phoneService.findByName(search);\r\n        req.setAttribute(\"phones\", phones);\r\n        req.getRequestDispatcher(\"/phoneAdmin/list.jsp\").forward(req, resp);\r\n    }\r\n\r\n    private void deletePhone(HttpServletRequest req, HttpServletResponse resp) throws IOException {\r\n        int phoneId = 0;\r\n        if (req.getParameter(\"id\") != null) {\r\n            try {\r\n                phoneId = Integer.parseInt(req.getParameter(\"id\"));\r\n            } catch (NumberFormatException e) {\r\n                e.printStackTrace();\r\n            }\r\n        }\r\n        if (phoneId != 0) {\r\n            boolean isDeleted = phoneService.deleteById(phoneId);\r\n            if (!isDeleted) {\r\n                req.setAttribute(\"message\", \"Xóa không thành công.\");\r\n            }\r\n        } else {\r\n            req.setAttribute(\"message\", \"ID không hợp lệ.\");\r\n        }\r\n        resp.sendRedirect(req.getContextPath() + \"/phone\");\r\n    }\r\n    private void createPhone(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {\r\n        String name = req.getParameter(\"name\");\r\n        String img = req.getParameter(\"img\");\r\n        String manufacture = req.getParameter(\"manufacture\");\r\n        double price = Double.parseDouble(req.getParameter(\"price\"));\r\n        int quantity = Integer.parseInt(req.getParameter(\"quantity\"));\r\n        float size = Float.parseFloat(req.getParameter(\"size\"));\r\n        String color = req.getParameter(\"color\");\r\n        int ram = Integer.parseInt(req.getParameter(\"ram\"));\r\n        int batery = Integer.parseInt(req.getParameter(\"batery\"));\r\n\r\n        if (name != null && img != null && manufacture != null && price > 0 && quantity > 0 && size > 0 && color != null && ram > 0 && batery > 0) {\r\n            Phone phone = new Phone(0, name, img, manufacture, price, quantity, size, color, ram, batery);\r\n            phoneService.savePhone(phone);\r\n            resp.sendRedirect(req.getContextPath() + \"/phone\");\r\n        } else {\r\n            req.setAttribute(\"message\", \"Thông tin không hợp lệ. Vui lòng điền đầy đủ các trường.\");\r\n            req.getRequestDispatcher(\"/phoneAdmin/createAD.jsp\").forward(req, resp);\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/phonestore/controllers/PhoneController.java b/src/main/java/com/example/phonestore/controllers/PhoneController.java
+--- a/src/main/java/com/example/phonestore/controllers/PhoneController.java	(revision 11f0e521718a20dbbc9175cbc708432c4db2f1fa)
++++ b/src/main/java/com/example/phonestore/controllers/PhoneController.java	(date 1720175055018)
+@@ -29,6 +29,9 @@
+             case "create":
+                 showCreateForm(req, resp);
+                 break;
++            case "edit":
++                editShowForm(req, resp);
++                break;
+             default:
+                 List<Phone> phones = phoneService.findAll();
+                 req.setAttribute("phones", phones);
+@@ -37,6 +40,14 @@
+         }
+     }
+ 
++    private void editShowForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
++        int id = Integer.parseInt(req.getParameter("id"));
++        Phone phone = phoneService.findById(id);
++        req.setAttribute("phone", phone);
++        RequestDispatcher dispatcher = req.getRequestDispatcher("/phoneAdmin/edit.jsp");
++        dispatcher.forward(req, resp);
++    }
++
+     private void showCreateForm(HttpServletRequest req, HttpServletResponse resp) {
+         RequestDispatcher dispatcher = req.getRequestDispatcher("/phoneAdmin/createAD.jsp");
+         try {
+@@ -62,8 +73,41 @@
+                 deletePhone(req, resp);
+                 break;
+             case "search":
+-                searchPhone(req,resp);
++                searchPhone(req, resp);
+                 break;
++            case "edit":
++                editPhone(req, resp);
++        }
++    }
++
++    private void editPhone(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
++        int id = Integer.parseInt(req.getParameter("id"));
++        String name = req.getParameter("name");
++        String image = req.getParameter("image");
++        String manufacture = req.getParameter("manufacture");
++        double price = Double.parseDouble(req.getParameter("price"));
++        int quantity = Integer.parseInt(req.getParameter("quantity"));
++        float size = Float.parseFloat(req.getParameter("size"));
++        String color = req.getParameter("color");
++        int ram = Integer.parseInt(req.getParameter("ram"));
++        int battery = Integer.parseInt(req.getParameter("battery"));
++        Phone phone = phoneService.findById(id);
++        if (phone != null) {
++            phone.setName(name);
++            phone.setImg(image);
++            phone.setManufacture(manufacture);
++            phone.setPrice(price);
++            phone.setQuantity(quantity);
++            phone.setSize(size);
++            phone.setColor(color);
++            phone.setRam(ram);
++            phone.setBatery(battery);
++            phoneService.update(id, phone);
++            req.setAttribute("phone", phone);
++            req.getRequestDispatcher("/phoneAdmin/edit.jsp").forward(req, resp);
++        } else {
++            req.setAttribute("message", "Điện thoại không tồn tại");
++            resp.sendRedirect(req.getContextPath() + "/phone");
+         }
+     }
+ 
+@@ -93,6 +137,7 @@
+         }
+         resp.sendRedirect(req.getContextPath() + "/phone");
+     }
++
+     private void createPhone(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         String name = req.getParameter("name");
+         String img = req.getParameter("img");
+Index: src/main/java/com/example/phonestore/repositories/IPhoneRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.phonestore.repositories;\r\n\r\nimport com.example.phonestore.models.Phone;\r\n\r\nimport java.util.List;\r\n\r\npublic interface IPhoneRepository {\r\n    List<Phone> findAll();\r\n\r\n    void savePhone(Phone phone);\r\n\r\n    boolean deleteById(int phoneId);\r\n\r\n    List<Phone> findByName(String name);\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/phonestore/repositories/IPhoneRepository.java b/src/main/java/com/example/phonestore/repositories/IPhoneRepository.java
+--- a/src/main/java/com/example/phonestore/repositories/IPhoneRepository.java	(revision 11f0e521718a20dbbc9175cbc708432c4db2f1fa)
++++ b/src/main/java/com/example/phonestore/repositories/IPhoneRepository.java	(date 1720174079791)
+@@ -12,4 +12,8 @@
+     boolean deleteById(int phoneId);
+ 
+     List<Phone> findByName(String name);
++
++    Phone findById(int id);
++
++    void update(int id, Phone phone);
+ }
+Index: src/main/java/com/example/phonestore/repositories/impl/PhoneRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.phonestore.repositories.impl;\r\n\r\nimport com.example.phonestore.models.Phone;\r\nimport com.example.phonestore.repositories.IPhoneRepository;\r\n\r\nimport java.sql.Connection;\r\nimport java.sql.PreparedStatement;\r\nimport java.sql.ResultSet;\r\nimport java.sql.SQLException;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class PhoneRepository implements IPhoneRepository {\r\n    @Override\r\n    public List<Phone> findAll() {\r\n        List<Phone> phones = new ArrayList<>();\r\n        try {\r\n\r\n            PreparedStatement preparedStatement = BaseRepository.getConnection().\r\n                    prepareStatement(\"SELECT id_product, name_product, manufacture, price, quantity, size, color, ram, battery, image FROM product\");\r\n            ResultSet resultSet = preparedStatement.executeQuery();\r\n            while (resultSet.next()) {\r\n                int id = resultSet.getInt(\"id_product\");\r\n                String name = resultSet.getString(\"name_product\");\r\n                String manufacture = resultSet.getString(\"manufacture\");\r\n                double price = resultSet.getDouble(\"price\");\r\n                int quantity = resultSet.getInt(\"quantity\");\r\n                float size = resultSet.getFloat(\"size\");\r\n                String color = resultSet.getString(\"color\");\r\n                int ram = resultSet.getInt(\"ram\");\r\n                int battery = resultSet.getInt(\"battery\");\r\n                String image = resultSet.getString(\"image\");\r\n                Phone phone = new Phone(id, name, image, manufacture, price, quantity, size, color, ram, battery);\r\n                phones.add(phone);\r\n            }\r\n        } catch (SQLException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n        return phones;\r\n    }\r\n\r\n    @Override\r\n    public void savePhone(Phone phone) {\r\n        String sql = \"INSERT INTO product (name_product, image, manufacture, price, quantity, size, color, ram, battery) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)\";\r\n        try {\r\n            PreparedStatement preparedStatement = BaseRepository.getConnection().prepareStatement(sql);\r\n            preparedStatement.setString(1, phone.getName());\r\n            preparedStatement.setString(2, phone.getImg());\r\n            preparedStatement.setString(3, phone.getManufacture());\r\n            preparedStatement.setDouble(4, phone.getPrice());\r\n            preparedStatement.setInt(5, phone.getQuantity());\r\n            preparedStatement.setFloat(6, phone.getSize());\r\n            preparedStatement.setString(7, phone.getColor());\r\n            preparedStatement.setInt(8, phone.getRam());\r\n            preparedStatement.setInt(9, phone.getBatery());\r\n            preparedStatement.executeUpdate();\r\n        } catch (SQLException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n\r\n    }\r\n\r\n    @Override\r\n    public boolean deleteById(int phoneId) {\r\n        boolean isDeleted;\r\n        try {\r\n            PreparedStatement statement = BaseRepository.getConnection()\r\n                    .prepareStatement(\"DELETE FROM product WHERE id_product = ?\");\r\n            statement.setLong(1, phoneId);\r\n            isDeleted = statement.executeUpdate() > 0;\r\n        } catch (SQLException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n        return isDeleted;\r\n    }\r\n\r\n    @Override\r\n    public List<Phone> findByName(String name) {\r\n        List<Phone> result = new ArrayList<>();\r\n        try {\r\n            PreparedStatement preparedStatement = BaseRepository.getConnection().\r\n                    prepareStatement(\"SELECT id_product, name_product, image, manufacture, price, quantity, size, color, ram, battery FROM product WHERE name_product LIKE ?\");\r\n            preparedStatement.setString(1, \"%\" + name + \"%\");\r\n            ResultSet resultSet = preparedStatement.executeQuery();\r\n            while (resultSet.next()) {\r\n                int id = resultSet.getInt(\"id_product\");\r\n                String phoneName = resultSet.getString(\"name_product\");\r\n                String image = resultSet.getString(\"image\");\r\n                String manufacture = resultSet.getString(\"manufacture\");\r\n                double price = resultSet.getDouble(\"price\");\r\n                int quantity = resultSet.getInt(\"quantity\");\r\n                float size = resultSet.getFloat(\"size\");\r\n                String color = resultSet.getString(\"color\");\r\n                int ram = resultSet.getInt(\"ram\");\r\n                int battery = resultSet.getInt(\"battery\");\r\n\r\n                Phone phone = new Phone(id, phoneName, image, manufacture, price, quantity, size, color, ram, battery);\r\n                result.add(phone);\r\n            }\r\n        } catch (SQLException e) {\r\n            throw new RuntimeException(e);\r\n        }\r\n        return result;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/phonestore/repositories/impl/PhoneRepository.java b/src/main/java/com/example/phonestore/repositories/impl/PhoneRepository.java
+--- a/src/main/java/com/example/phonestore/repositories/impl/PhoneRepository.java	(revision 11f0e521718a20dbbc9175cbc708432c4db2f1fa)
++++ b/src/main/java/com/example/phonestore/repositories/impl/PhoneRepository.java	(date 1720174702912)
+@@ -102,4 +102,54 @@
+         }
+         return result;
+     }
++
++    @Override
++    public Phone findById(int id) {
++        Phone phone = null;
++        try {
++            PreparedStatement preparedStatement = BaseRepository.getConnection().
++                    prepareStatement("select * from product where id_product = ?");
++            preparedStatement.setInt(1,id);
++            ResultSet resultSet = preparedStatement.executeQuery();
++            if (resultSet.next()){
++                String phoneName = resultSet.getString("name_product");
++                String image = resultSet.getString("image");
++                String manufacture = resultSet.getString("manufacture");
++                double price = resultSet.getDouble("price");
++                int quantity = resultSet.getInt("quantity");
++                float size = resultSet.getFloat("size");
++                String color = resultSet.getString("color");
++                int ram = resultSet.getInt("ram");
++                int battery = resultSet.getInt("battery");
++                phone = new Phone(id, phoneName, image, manufacture, price, quantity, size, color, ram, battery);
++
++            }        } catch (SQLException e) {
++            throw new RuntimeException(e);
++        }
++        return phone;
++    }
++
++    @Override
++    public void update(int id, Phone phone) {
++        try {
++            PreparedStatement preparedStatement = BaseRepository.getConnection()
++                    .prepareStatement("UPDATE product SET name_product = ?, image = ?, manufacture = ?, price = ?, quantity = ?, size = ?, color = ?, ram = ?, battery = ? WHERE id_product = ?");
++
++            preparedStatement.setString(1, phone.getName());
++            preparedStatement.setString(2, phone.getImg());
++            preparedStatement.setString(3, phone.getManufacture());
++            preparedStatement.setDouble(4, phone.getPrice());
++            preparedStatement.setInt(5, phone.getQuantity());
++            preparedStatement.setFloat(6, phone.getSize());
++            preparedStatement.setString(7, phone.getColor());
++            preparedStatement.setInt(8, phone.getRam());
++            preparedStatement.setInt(9, phone.getBatery());
++            preparedStatement.setInt(10, phone.getId());
++
++            preparedStatement.executeUpdate();
++        } catch (SQLException e) {
++            throw new RuntimeException(e);
++        }
++
++    }
+ }
+Index: .idea/.gitignore
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+deleted file mode 100644
+--- a/.idea/.gitignore	(revision 11f0e521718a20dbbc9175cbc708432c4db2f1fa)
++++ /dev/null	(revision 11f0e521718a20dbbc9175cbc708432c4db2f1fa)
+@@ -1,8 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+-# Editor-based HTTP Client requests
+-/httpRequests/
+-# Datasource local storage ignored files
+-/dataSources/
+-/dataSources.local.xml
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"FrameworkDetectionExcludesConfiguration\">\r\n    <file type=\"web\" url=\"file://$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_8\" project-jdk-name=\"17\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 11f0e521718a20dbbc9175cbc708432c4db2f1fa)
++++ b/.idea/misc.xml	(date 1720319710985)
+@@ -1,10 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="FrameworkDetectionExcludesConfiguration">
+-    <file type="web" url="file://$PROJECT_DIR$" />
+-  </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="17" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" project-jdk-name="17" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file

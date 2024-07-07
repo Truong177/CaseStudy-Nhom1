@@ -5,6 +5,7 @@ import com.example.phonestore.repositories.IPhoneRepository;
 import com.example.phonestore.repositories.impl.PhoneRepository;
 import com.example.phonestore.services.IPhoneService;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class PhoneService implements IPhoneService {
@@ -30,7 +31,14 @@ public class PhoneService implements IPhoneService {
     }
 
     @Override
-    public Phone findById(int id) {
+    public Phone findById(int id) throws SQLException {
         return phoneRepository.findById(id);
     }
+
+
+    @Override
+    public void update(int id, Phone phone) {
+        phoneRepository.update(id,phone);
+    }
+
 }

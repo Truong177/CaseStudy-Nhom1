@@ -2,6 +2,7 @@ package com.example.phonestore.repositories;
 
 import com.example.phonestore.models.Phone;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface IPhoneRepository {
@@ -13,5 +14,9 @@ public interface IPhoneRepository {
 
     List<Phone> findByName(String name);
 
-    Phone findById(int id);
+    Phone findById(int id) throws SQLException;
+
+
+    void update(int id, Phone phone);
+
 }
