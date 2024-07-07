@@ -90,7 +90,7 @@
             <div class="row">
                 <c:forEach var="phone" items="${phones}">
                     <div class="col-md-4">
-                        <div class="card mb-4" onclick="window.location.href='/phone?action=infor'">
+                        <div class="card mb-4" onclick="window.location.href='/phone?action=infor&id=${phone.id}'">
                             <input type="hidden" name="id" value="${phone.id}">
                             <img class="card-img-top" src="${phone.img}">
                             <div class="card-body">
