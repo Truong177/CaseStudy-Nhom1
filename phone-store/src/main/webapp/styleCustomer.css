@@ -1,0 +1,56 @@
+.navbar-red {
+    background-color: red;
+}
+
+.navbar-brand {
+    color: white;
+    font-family: 'Pacifico', cursive;
+    font-size: 24px;
+}
+
+.nav-link {
+    color: white;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.nav-link:hover {
+    color: lightgray;
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+body {
+    padding-top: 56px; /* Adjust this value based on the height of the fixed navbar */
+}
+
+.product-detail {
+    padding: 20px;
+}
+.product-title {
+    color: red;
+    font-size: 24px;
+    font-weight: bold;
+}
+.product-info {
+    font-size: 18px;
+    margin-top: 10px;
+}
+.product-info span {
+    font-weight: bold;
+}
+.old-price {
+    text-decoration: line-through;
+}
+.btn-buy {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.nav-tabs .nav-link {
+    font-weight: bold;
+}

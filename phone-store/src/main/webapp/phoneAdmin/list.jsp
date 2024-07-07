@@ -128,7 +128,7 @@
                 <td>${phone.size} inches</td>
                 <td>${phone.color}</td>
                 <td>${phone.ram} GB</td>
-                <td>${phone.batery} mAH</td>
+                <td>${phone.battery} mAH</td>
                 <td><img src="${phone.img}" alt="${phone.name}" style="width: 50px; height: 50px;"></td>
                 <td>
                     <a href="/phone?action=edit&id=${phone.id}" class="btn btn-warning">Sửa</a>
