@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class BaseRepository {
     private static String jdbcURL = "jdbc:mysql://localhost:3306/phone_store";
     private static String jdbcUsername = "root";
-    private static String jdbcPassword = "17072001";
+    private static String jdbcPassword = "123456";
     private static Connection connection = null;
 
     static {

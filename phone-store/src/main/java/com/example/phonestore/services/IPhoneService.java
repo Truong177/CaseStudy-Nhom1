@@ -12,4 +12,6 @@ public interface IPhoneService {
     boolean deleteById(int phoneId);
 
     List<Phone> findByName(String name);
+
+    Phone findById(int id);
 }
