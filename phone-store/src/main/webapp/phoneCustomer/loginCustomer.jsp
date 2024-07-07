@@ -45,16 +45,19 @@
 <body>
 <div class="container">
     <h2>Đăng nhập</h2>
-    <form action="${pageContext.request.contextPath}/login" method="post">
+    <form action="${pageContext.request.contextPath}/logincustomer" method="post">
         <div class="mb-3">
-            <label for="username" class="form-label">Tên đăng nhập:</label>
-            <input type="text" class="form-control" id="username" name="username" required>
+            <label for="account" class="form-label">Tài khoản:</label>
+            <input type="text" class="form-control" id="account" name="account" required>
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Mật khẩu:</label>
             <input type="password" class="form-control" id="password" name="password" required>
         </div>
         <button type="submit" class="btn btn-primary">Đăng nhập</button>
+        <c:if test="${not empty error}">
+            <p class="error-message">${error}</p>
+        </c:if>
     </form>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
