@@ -1,14 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: WIN 10
-  Date: 06/07/2024
-  Time: 7:17 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +13,9 @@
 
 <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-red">
     <div class="container-fluid">
-        <a class="navbar-brand text-white" href="${pageContext.request.contextPath}/phoneCustomer"><img src="/img/logo1.png" height="40"> Ổ Quỷ Store</a>
+        <a class="navbar-brand text-white" href="${pageContext.request.contextPath}/phoneCustomer">
+            <img src="/img/logo1.png" height="40"> Ổ Quỷ Store
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,17 +28,27 @@
                 <li class="nav-item"><a class="nav-link text-white" href="#">Giới Thiệu</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="#">Liên Hệ</a></li>
             </ul>
-            <form class="form-inline my-2 my-lg-0 mr-3" action="/phoneCustomer?action=search" method="post">
+            <form class="form-inline my-2 my-lg-0 mr-3" action="${pageContext.request.contextPath}/phoneCustomer?action=search" method="post">
                 <input class="form-control mr-sm-2" type="search" name="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Tìm kiếm</button>
             </form>
             <a class="nav-link text-white" href="#">
                 <img src="/img/cart.png" height="42">
             </a>
+            <c:choose>
+                <c:when test="${not empty sessionScope.user}">
+                    <span class="navbar-text text-white">Xin chào, ${sessionScope.user.account}</span>
+                </c:when>
+                <c:otherwise>
+                    <a class="nav-link text-white" href="${pageContext.request.contextPath}/logincustomer">
+                        <img src="/img/login.png" height="42">
+                    </a>
+                </c:otherwise>
+            </c:choose>
         </div>
     </div>
 </nav>
-<div><p name="message" style="color: red"></p></div>
+
 <div class="container mt-5 pt-3">
     <div class="row">
         <div class="col-md-3">
