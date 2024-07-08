@@ -66,7 +66,7 @@
 <nav class="navbar navbar-expand-lg navbar-red">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="/img/logo.png" alt="logo" width="50" height="50">
+            <img src="/img/logo1.png" alt="logo" width="50" height="50">
             Cửa hàng điện thoại
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
