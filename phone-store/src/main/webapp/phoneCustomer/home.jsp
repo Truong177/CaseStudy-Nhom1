@@ -117,7 +117,7 @@
 
 <footer class="bg-light p-3 mt-4">
     <div class="container text-center">
-        <p>Shop điện thoại di động - Địa chỉ: 27 Tam Trinh, Hoang Mai, Ha Noi - Dien Thoai: 0949534953</p>
+        <p>Shop điện thoại di động - Địa chỉ: 210 Quang Trung, Hoang Mai, Ha Noi - Dien Thoai: 0949534953</p>
     </div>
 </footer>
 
