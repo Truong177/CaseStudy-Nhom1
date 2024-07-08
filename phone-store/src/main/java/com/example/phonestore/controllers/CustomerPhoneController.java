@@ -1,9 +1,7 @@
 package com.example.phonestore.controllers;
-
 import com.example.phonestore.models.Phone;
 import com.example.phonestore.services.IPhoneService;
 import com.example.phonestore.services.impl.PhoneService;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,11 +37,6 @@ public class CustomerPhoneController extends HttpServlet {
         }
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-    }
-
     private void getPhoneInfo(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         Phone phone = phoneService.findById(id);
@@ -54,5 +47,27 @@ public class CustomerPhoneController extends HttpServlet {
             RequestDispatcher dispatcher = req.getRequestDispatcher("/phoneCustomer/phoneInfor.jsp");
             dispatcher.forward(req, resp);
         }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
+        String action = req.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        switch (action) {
+            case "search":
+                searchPhone(req, resp);
+                break;
+        }
+    }
+
+    private void searchPhone(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String search = req.getParameter("search");
+        List<Phone> phones = phoneService.findByName(search);
+        req.setAttribute("phones", phones);
+        req.getRequestDispatcher("/phoneCustomer/search.jsp").forward(req, resp);
     }
 }
