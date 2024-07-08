@@ -60,9 +60,9 @@
             <input type="password" class="form-control ${not empty error ? 'is-invalid' : ''}" id="password" name="password" required>
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
-<%--        <c:if test="${not empty error}">--%>
-<%--            <div class="alert alert-danger mt-3">${error}</div>--%>
-<%--        </c:if>--%>
+        <%--        <c:if test="${not empty error}">--%>
+        <%--            <div class="alert alert-danger mt-3">${error}</div>--%>
+        <%--        </c:if>--%>
     </form>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
