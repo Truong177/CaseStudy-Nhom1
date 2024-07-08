@@ -19,7 +19,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-red">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/phone"><img src="phone-store/src/main/webapp/img/logo.png" height="40"> Trang Chủ</a>
+        <a class="navbar-brand" href="/phoneCustomer"><img src="/img/logo1.png" height="40"> Trang Chủ</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -31,13 +31,13 @@
                 <li class="nav-item"><a class="nav-link" href="#">Giới Thiệu</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Liên Hệ</a></li>
             </ul>
-            <form class="form-inline my-2 my-lg-0 mr-3" action="/phone?action=search" method="post">
+            <form class="form-inline my-2 my-lg-0 mr-3" action="/phoneCustomer?action=search" method="post">
                 <input class="form-control mr-sm-2" type="search" name="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search">
                 <input type="hidden" name="source" value="customer">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Tìm kiếm</button>
             </form>
-            <a class="nav-link text-white" href="#">
-                <img src="phone-store/src/main/webapp/img/cart.jpg" height="24">
+            <a href="#">
+                <img src="/img/cart.png" height="24">
                 Giỏ Hàng
             </a>
         </div>
@@ -50,7 +50,7 @@
             <div class="row">
                 <c:forEach var="phone" items="${phones}">
                     <div class="col-md-2">
-                        <div class="card mb-4" onclick="window.location.href='/phone?action=infor&id=${phone.id}'">
+                        <div class="card mb-4" onclick="window.location.href='/phoneCustomer?action=infor&id=${phone.id}'">
                             <input type="hidden" name="id" value="${phone.id}">
                             <img class="card-img-top" src="${phone.img}">
                             <div class="card-body">
