@@ -41,8 +41,8 @@
                     <span class="navbar-text text-white">Xin chào, ${sessionScope.user.account}</span>
                 </c:when>
                 <c:otherwise>
-                    <a class="nav-link text-white" href="${pageContext.request.contextPath}/logincustomer">
-                        <img src="/img/login1.png" height="42">
+                    <a class="btn btn-outline-light my-2 my-sm-0" href="${pageContext.request.contextPath}/logincustomer">
+                        Đăng nhập
                     </a>
                 </c:otherwise>
             </c:choose>
@@ -74,9 +74,7 @@
                     <div class="col-md-4">
                         <div class="card mb-4" onclick="window.location.href='/phoneCustomer?action=infor&id=${phone.id}'">
                             <input type="hidden" name="id" value="${phone.id}">
-
-                            <img class="card-img-top" src="${phone.img}">
-
+                            <div class="card-img-top" style="background-image: url('${phone.img}');"></div>
                             <div class="card-body">
                                 <h5 class="card-title">${phone.name}</h5>
                                 <c:if test="${phone.quantity > 0}">
@@ -98,7 +96,7 @@
                     <div class="col-md-4">
                         <div class="card mb-4" onclick="window.location.href='/phoneCustomer?action=infor&id=${phone.id}'">
                             <input type="hidden" name="id" value="${phone.id}">
-                            <img class="card-img-top" src="${phone.img}">
+                            <div class="card-img-top" style="background-image: url('${phone.img}');"></div>
                             <div class="card-body">
                                 <h5 class="card-title">${phone.name}</h5>
                                 <c:if test="${phone.quantity > 0}">
@@ -119,7 +117,7 @@
 
 <footer class="bg-light p-3 mt-4">
     <div class="container text-center">
-        <p>Shop điện thoại di động - Địa chỉ: 27 Tam Trinh, Hoang Mai, Ha Noi - Dien Thoai: 0949534953</p>
+        <p>Shop điện thoại di động - Địa chỉ: 210 Quang Trung, Hoang Mai, Ha Noi - Dien Thoai: 0949534953</p>
     </div>
 </footer>
 
