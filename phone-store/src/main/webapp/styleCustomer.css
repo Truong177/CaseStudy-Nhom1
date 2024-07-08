@@ -86,3 +86,11 @@ footer {
     color: #333;
     padding: 20px 0;
 }
+.card-img-top {
+    width: 100%;
+    height: 200px; /* Đặt chiều cao cố định phù hợp */
+    background-size: contain; /* Hoặc 'cover' tùy theo yêu cầu */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
