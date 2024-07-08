@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0816a14-58ab-4e97-95ee-310cebe9d35d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/phoneCustomer/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phoneCustomer/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/phoneCustomer/loginCustomer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phoneCustomer/loginCustomer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/styleCustomer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styleCustomer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2ab79d64-3d53-4296-afc0-4f43ebeeb47d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2ab79d64-3d53-4296-afc0-4f43ebeeb47d.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phonestore/controllers/CustomerPhoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phonestore/controllers/CustomerPhoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phonestore/repositories/IPhoneRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phonestore/repositories/IPhoneRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phonestore/repositories/impl/PhoneRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phonestore/repositories/impl/PhoneRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phonestore/services/IPhoneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phonestore/services/IPhoneService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phonestore/services/impl/PhoneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phonestore/services/impl/PhoneService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +45,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="LogFilters">
@@ -205,6 +212,7 @@
       <workItem from="1720319929393" duration="3481000" />
       <workItem from="1720357867656" duration="9519000" />
       <workItem from="1720400983775" duration="14845000" />
+      <workItem from="1720434507542" duration="332000" />
     </task>
     <servers />
   </component>

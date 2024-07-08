@@ -19,4 +19,6 @@ public interface IPhoneService {
     void update(int id, Phone phone);
 
     Phone findById(int id);
+
+    List<Phone> findByManufacturer(String samSung);
 }

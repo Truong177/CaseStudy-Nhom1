@@ -28,6 +28,11 @@ public class CustomerPhoneController extends HttpServlet {
             case "infor":
                 getPhoneInfo(req, resp);
                 break;
+            case "iphone":
+                showIphoneProduct(req,resp);
+                break;
+            case "samsung":
+                showSamSungProduct(req,resp);
             default:
                 List<Phone> phones = phoneService.findAll();
                 req.setAttribute("phones", phones);
@@ -35,6 +40,20 @@ public class CustomerPhoneController extends HttpServlet {
                 dispatcher.forward(req, resp);
                 break;
         }
+    }
+
+    private void showSamSungProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Phone> phones = phoneService.findByManufacturer("SamSung");
+        req.setAttribute("phones", phones);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/phoneCustomer/search.jsp");
+        dispatcher.forward(req, resp);
+    }
+
+    private void showIphoneProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Phone> phones = phoneService.findByManufacturer("Apple");
+        req.setAttribute("phones", phones);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/phoneCustomer/search.jsp");
+        dispatcher.forward(req, resp);
     }
 
     private void getPhoneInfo(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

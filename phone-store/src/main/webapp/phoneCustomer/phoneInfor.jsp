@@ -14,7 +14,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Tiết Sản Phẩm</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styleCustomer.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding-top: 56px;
+        }
+
+        .navbar-red {
+            background-color: red;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-family: 'Pacifico', cursive;
+            font-size: 24px;
+        }
+
+        .nav-link {
+            color: white !important;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .nav-link:hover {
+            color: lightgray !important;
+        }
+
+        .form-inline .form-control {
+            width: 250px;
+        }
+
+        .form-inline .btn-outline-light {
+            color: white;
+            border-color: white;
+        }
+
+        .form-inline .btn-outline-light:hover {
+            color: red;
+            background-color: white;
+            border-color: white;
+        }
+
+        .product-detail {
+            margin-top: 80px;
+        }
+
+        .product-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .product-info {
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .btn-buy {
+            background-color: red;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .btn-buy:hover {
+            background-color: #ff1a1a;
+        }
+
+        .nav-tabs {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .nav-tabs .nav-link {
+            color: #333;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-weight: bold;
+        }
+
+        .nav-tabs .nav-link.active {
+            border-color: red;
+            color: red;
+        }
+
+        .table th {
+            width: 30%;
+            font-weight: normal;
+        }
+
+        .table td {
+            vertical-align: middle;
+            color: #333;
+        }
+
+        .card {
+            cursor: pointer;
+            border: 1px solid #ddd;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-title {
+            color: red;
+        }
+
+        .card-text {
+            color: #333;
+        }
+
+        .card-text.text-danger {
+            color: red !important;
+        }
+
+        footer {
+            background-color: #f1f1f1;
+            color: #333;
+            padding: 20px 0;
+        }
+
+    </style>
 
 </head>
 <body>
