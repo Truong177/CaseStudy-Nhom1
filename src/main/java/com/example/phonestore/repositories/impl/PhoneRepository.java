@@ -146,6 +146,38 @@ public class PhoneRepository implements IPhoneRepository {
     }
 
     @Override
+    public List<Phone> findByManufacturer(String apple) {
+        List<Phone> result = new ArrayList<>();
+        Connection connection = BaseRepository.getConnection();
+        if (connection == null) {
+            throw new RuntimeException("Database connection is null");
+        }
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT id_product, name_product, image, manufacture, price, quantity, size, color, ram, battery FROM product WHERE manufacture = ?");
+            preparedStatement.setString(1, apple);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id_product");
+                String phoneName = resultSet.getString("name_product");
+                String image = resultSet.getString("image");
+                String manufacture = resultSet.getString("manufacture");
+                long price = resultSet.getLong("price");
+                int quantity = resultSet.getInt("quantity");
+                float size = resultSet.getFloat("size");
+                String color = resultSet.getString("color");
+                int ram = resultSet.getInt("ram");
+                int battery = resultSet.getInt("battery");
+
+                Phone phone = new Phone(id, phoneName, image, manufacture, price, quantity, size, color, ram, battery);
+                result.add(phone);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
+
+    @Override
     public void update(int id, Phone phone) {
         Connection connection = BaseRepository.getConnection();
         if (connection == null) {

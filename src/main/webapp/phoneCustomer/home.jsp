@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -41,7 +42,7 @@
                 </c:when>
                 <c:otherwise>
                     <a class="nav-link text-white" href="${pageContext.request.contextPath}/logincustomer">
-                        <img src="/img/login.png" height="42">
+                        <img src="/img/login1.png" height="42">
                     </a>
                 </c:otherwise>
             </c:choose>
@@ -54,8 +55,8 @@
         <div class="col-md-3">
             <h5>Hãng Điện Thoại</h5>
             <ul class="list-group">
-                <li class="list-group-item"><a href="">iPhone</a></li>
-                <li class="list-group-item"><a href="">Samsung</a></li>
+                <li class="list-group-item"><a href="${pageContext.request.contextPath}/phoneCustomer?action=iphone">iPhone</a></li>
+                <li class="list-group-item"><a href="${pageContext.request.contextPath}/phoneCustomer?action=samsung">Samsung</a></li>
                 <li class="list-group-item"><a href="">Sony Ericson</a></li>
                 <li class="list-group-item"><a href="">LG</a></li>
                 <li class="list-group-item"><a href="">HTC</a></li>
@@ -84,7 +85,7 @@
                                 <c:if test="${phone.quantity < 1}">
                                     <p class="card-text">Tình trạng: Hết hàng</p>
                                 </c:if>
-                                <p class="card-text text-danger">Giá bán: ${phone.price}đ</p>
+                                <p class="card-text text-danger">Giá bán: <fmt:formatNumber type="number" pattern="###,###" value="${phone.price}" /> VND</p>
                             </div>
                         </div>
                     </div>
@@ -106,7 +107,7 @@
                                 <c:if test="${phone.quantity < 1}">
                                     <p class="card-text">Tình trạng: Hết hàng</p>
                                 </c:if>
-                                <p class="card-text text-danger">Giá bán: ${phone.price}đ</p>
+                                <p class="card-text text-danger">Giá bán: <fmt:formatNumber type="number" pattern="###,###" value="${phone.price}" /> VND</p>
                             </div>
                         </div>
                     </div>

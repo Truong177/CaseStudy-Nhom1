@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -123,7 +124,7 @@
                 <td>${status.count}</td>
                 <td>${phone.name}</td>
                 <td>${phone.manufacture}</td>
-                <td>${phone.price} VND</td>
+                <td><fmt:formatNumber type="number" pattern="###,###" value="${phone.price}" /> VND</td>
                 <td>${phone.quantity}</td>
                 <td>${phone.size} inches</td>
                 <td>${phone.color}</td>

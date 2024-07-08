@@ -43,4 +43,9 @@ public class PhoneService implements IPhoneService {
         return phoneRepository.findById(id);
     }
 
+    @Override
+    public List<Phone> findByManufacturer(String Apple) {
+        return phoneRepository.findByManufacturer(Apple);
+    }
+
 }

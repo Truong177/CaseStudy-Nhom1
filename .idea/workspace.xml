@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0816a14-58ab-4e97-95ee-310cebe9d35d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/login1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phonestore/controllers/CustomerPhoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phonestore/controllers/CustomerPhoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phonestore/repositories/IPhoneRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phonestore/repositories/IPhoneRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phonestore/repositories/impl/PhoneRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phonestore/repositories/impl/PhoneRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phonestore/services/IPhoneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phonestore/services/IPhoneService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phonestore/services/impl/PhoneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phonestore/services/impl/PhoneService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/samsungs24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/phoneAdmin/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phoneAdmin/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/phoneCustomer/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phoneCustomer/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/phoneCustomer/phoneInfor.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phoneCustomer/phoneInfor.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +34,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand />
@@ -39,7 +56,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -59,6 +76,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -84,6 +102,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\CaseStudy-Nhom1\phone-store\src\main\webapp\phone" />
+      <recent name="D:\CaseStudy-Nhom1\phone-store\src\main\webapp\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\CaseStudy-Nhom1\phone-store\src\main\webapp\img" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -201,6 +222,7 @@
       <workItem from="1720319929393" duration="3481000" />
       <workItem from="1720357867656" duration="9519000" />
       <workItem from="1720400983775" duration="16129000" />
+      <workItem from="1720426244581" duration="6990000" />
     </task>
     <servers />
   </component>
