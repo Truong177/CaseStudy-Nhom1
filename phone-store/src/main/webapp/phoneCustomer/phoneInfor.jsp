@@ -15,11 +15,12 @@
     <title>Chi Tiết Sản Phẩm</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styleCustomer.css">
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-red">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/phone"><img src="phone-store/src/main/webapp/img/logo.png" height="40"> Trang Chủ</a>
+        <a class="navbar-brand" href="/phoneCustomer"><img src="/img/logo1.png" height="40"> Trang Chủ</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -36,8 +37,7 @@
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Tìm kiếm</button>
             </form>
             <a class="nav-link text-white" href="#">
-                <img src="phone-store/src/main/webapp/img/cart.jpg" height="24">
-                Giỏ Hàng
+                <img src="/img/cart.png" height="42">
             </a>
         </div>
     </div>
@@ -45,7 +45,7 @@
 <div class="container product-detail">
     <div class="row">
         <div class="col-md-4">
-            <img src="${phone.img}"  class="img-fluid">
+            <img src="${phone.img}" class="img-fluid">
         </div>
         <div class="col-md-8">
             <div class="product-title">${phone.name}</div>
@@ -59,10 +59,12 @@
 
     <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" id="details-tab" data-toggle="tab" href="#details" role="tab" aria-controls="details" aria-selected="true">Chi tiết sản phẩm</a>
+            <a class="nav-link active" id="details-tab" data-toggle="tab" href="#details" role="tab"
+               aria-controls="details" aria-selected="true">Chi tiết sản phẩm</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="comments-tab" data-toggle="tab" href="#comments" role="tab" aria-controls="comments" aria-selected="false">Bình luận sản phẩm</a>
+            <a class="nav-link" id="comments-tab" data-toggle="tab" href="#comments" role="tab" aria-controls="comments"
+               aria-selected="false">Bình luận sản phẩm</a>
         </li>
     </ul>
     <div class="tab-content" id="myTabContent">
@@ -87,7 +89,7 @@
             </table>
         </div>
         <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
-            <!-- Nội dung bình luận sản phẩm -->
+
         </div>
     </div>
 </div>

@@ -20,17 +20,18 @@
 
 <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-red">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="/img/logo1.png" height="40"> Trang Chủ</a>
+        <a class="navbar-brand text-white" href="${pageContext.request.contextPath}/phoneCustomer"><img src="/img/logo1.png" height="40"> Ổ Quỷ Store</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="#">Điện Thoại Mới</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Bán Chạy</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Giới Thiệu</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Liên Hệ</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="${pageContext.request.contextPath}/phoneCustomer">Trang chủ</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Điện Thoại Mới</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Bán Chạy</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Giới Thiệu</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Liên Hệ</a></li>
             </ul>
             <form class="form-inline my-2 my-lg-0 mr-3" action="/phoneCustomer?action=search" method="post">
                 <input class="form-control mr-sm-2" type="search" name="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search">
@@ -121,4 +122,3 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
