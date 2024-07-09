@@ -19,7 +19,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-red">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/phone"><img src="phone-store/src/main/webapp/img/logo.png" height="40"> Trang Chủ</a>
+        <a class="navbar-brand" href="/phoneCustomer"><img src="phone-store/src/main/webapp/img/logo.png" height="40"> Trang Chủ</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -36,9 +36,8 @@
                 <input type="hidden" name="source" value="customer">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Tìm kiếm</button>
             </form>
-            <a class="nav-link text-white" href="#">
-                <img src="phone-store/src/main/webapp/img/cart.jpg" height="24">
-                Giỏ Hàng
+            <a class="nav-link text-white" onclick="window.location.href ='phoneCustomer?action=openCart'">
+                <img src="/img/cart.png" height="42">
             </a>
         </div>
     </div>
@@ -46,7 +45,7 @@
 <div class="container-fluid mt-5 pt-3">
     <div class="row">
         <div class="col-md-12">
-            <h5><p>Kết quả tìm kiếm cho <span name ="search"></span></p> </h5>
+            <h5><p name="search">Kết quả tìm kiếm cho <span style="color: red">${search}</span></p> </h5>
             <div class="row">
                 <c:forEach var="phone" items="${phones}">
                     <div class="col-md-2">

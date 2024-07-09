@@ -19,4 +19,14 @@ public interface IPhoneRepository {
     void update(int id, Phone phone);
 
     Phone findById(int id);
+
+    void addCart(Phone phone) throws SQLException;
+
+    List<Phone> findAllCart();
+
+    boolean deleteCart(int phoneId);
+
+    boolean deleteProduct();
+
+    boolean checkInventoryById(int id);
 }

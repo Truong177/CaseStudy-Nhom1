@@ -19,7 +19,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-red">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/phone"><img src="phone-store/src/main/webapp/img/logo.png" height="40"> Trang Chủ</a>
+        <a class="navbar-brand" href="/phoneCustomer"><img src="phone-store/src/main/webapp/img/logo.png" height="40"> Trang Chủ</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,9 +35,8 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Tìm kiếm</button>
             </form>
-            <a class="nav-link text-white" href="#">
-                <img src="phone-store/src/main/webapp/img/cart.jpg" height="24">
-                Giỏ Hàng
+            <a class="nav-link text-white" onclick="window.location.href ='phoneCustomer?action=openCart'">
+                <img src="/img/cart.png" height="42">
             </a>
         </div>
     </div>
@@ -47,13 +46,18 @@
         <div class="col-md-4">
             <img src="${phone.img}"  class="img-fluid">
         </div>
+
         <div class="col-md-8">
             <div class="product-title">${phone.name}</div>
             <div class="product-info"><span>Hãng sản xuất:</span>${phone.manufacture}</div>
             <div class="product-info"><span>Giá:</span> ${phone.price} VNĐ</div>
             <div class="product-info"><span>Tình trạng:</span> Còn ${phone.quantity} sản phẩm</div>
-            <button class="btn btn-buy">Thêm vào giỏ hàng</button>
-            <button class="btn btn-buy">Đặt hàng</button>
+            <div><p name="message" style="color: #007bff ; margin-bottom:0px">${message}</p></div>
+            <form action="/phoneCustomer?action=addCart&id=${phone.id}" method="post">
+                <input type="hidden" name="id" value="${phone.id}">
+                <button class="btn btn-buy" type="submit">Thêm vào giỏ hàng</button>
+            </form>
+            <button class="btn btn-buy" onclick="window.location.href='/phoneCustomer?action=openCart'">Đặt hàng</button>
         </div>
     </div>
 
@@ -73,6 +77,8 @@
                     <td>${phone.size} inch</td>
                 </tr>
                 <tr>
+
+
                     <th>Màu sắc</th>
                     <td>${phone.color}</td>
                 </tr>

@@ -20,7 +20,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-red">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="/img/logo1.png" height="40"> Trang Chủ</a>
+        <a class="navbar-brand" href="/phoneCustomer"><img src="/img/logo1.png" height="40"> Trang Chủ</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -36,13 +36,13 @@
                 <input class="form-control mr-sm-2" type="search" name="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Tìm kiếm</button>
             </form>
-            <a class="nav-link text-white" href="#">
+            <a class="nav-link text-white" onclick="window.location.href ='phoneCustomer?action=openCart'">
                 <img src="/img/cart.png" height="42">
             </a>
         </div>
     </div>
 </nav>
-<div><p name="message" style="color: red"></p></div>
+<div><p name="message" style="color: red">${message}</p></div>
 <div class="container mt-5 pt-3">
     <div class="row">
         <div class="col-md-3">

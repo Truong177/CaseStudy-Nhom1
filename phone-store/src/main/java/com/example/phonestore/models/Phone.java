@@ -12,6 +12,15 @@ public class Phone {
     private int ram;
     private int battery;
 
+    public Phone(int id, String img, String color, String name, Long price, int quantity) {
+        this.id = id;
+        this.img = img;
+        this.color = color;
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
     public Phone() {
     }
 
