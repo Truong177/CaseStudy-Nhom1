@@ -129,6 +129,7 @@ public class CustomerPhoneController extends HttpServlet {
 //            req.setAttribute("message", "Bạn đã đặt quá số lượng tồn kho");
 //        }
         // Hiển thị lại trang
+//
         RequestDispatcher dispatcher = req.getRequestDispatcher("/phoneCustomer/phoneInfor.jsp");
         dispatcher.forward(req, resp);
     }
