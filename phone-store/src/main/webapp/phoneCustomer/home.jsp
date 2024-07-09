@@ -33,7 +33,7 @@
                 <input class="form-control mr-sm-2" type="search" name="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Tìm kiếm</button>
             </form>
-            <a class="nav-link text-white" href="#">
+            <a class="nav-link text-white" onclick="window.location.href ='phoneCustomer?action=openCart'">
                 <img src="/img/cart.png" height="42">
             </a>
             <c:choose>

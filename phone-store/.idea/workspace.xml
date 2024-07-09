@@ -4,14 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0816a14-58ab-4e97-95ee-310cebe9d35d" name="Changes" comment="">
+    <list default="true" id="d0816a14-58ab-4e97-95ee-310cebe9d35d" name="Changes" comment="fix giao dien">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/phoneCustomer/cart.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/2ab79d64-3d53-4296-afc0-4f43ebeeb47d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2ab79d64-3d53-4296-afc0-4f43ebeeb47d.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2ab79d64-3d53-4296-afc0-4f43ebeeb47d/storage_v2/_src_/schema/phone_store.0E7O1Q.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2ab79d64-3d53-4296-afc0-4f43ebeeb47d/storage_v2/_src_/schema/phone_store.0E7O1Q.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phonestore/controllers/CustomerPhoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phonestore/controllers/CustomerPhoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phonestore/models/Phone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phonestore/models/Phone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phonestore/repositories/IPhoneRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phonestore/repositories/IPhoneRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phonestore/repositories/impl/PhoneRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phonestore/repositories/impl/PhoneRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phonestore/services/IPhoneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phonestore/services/IPhoneService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/phonestore/services/impl/PhoneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/phonestore/services/impl/PhoneService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/phoneAdmin/cart.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/phoneCustomer/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phoneCustomer/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/phoneCustomer/phoneInfor.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phoneCustomer/phoneInfor.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/phoneCustomer/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/phoneCustomer/search.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +83,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;truong&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/CaseStudy-Nhom1/phone-store/src/main/webapp/phone&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/asus/Downloads/CaseStudy-Nhom1/phone-store/src/main/webapp/img&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -94,8 +102,12 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\asus\Downloads\CaseStudy-Nhom1\phone-store\src\main\webapp\img" />
       <recent name="D:\CaseStudy-Nhom1\phone-store\src\main\webapp\phone" />
       <recent name="D:\CaseStudy-Nhom1\phone-store\src\main\webapp\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\asus\Downloads\CaseStudy-Nhom1\phone-store\src\main\webapp\phoneCustomer" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.phonestore.services.impl" />
@@ -213,7 +225,42 @@
       <workItem from="1720357867656" duration="9519000" />
       <workItem from="1720400983775" duration="14845000" />
       <workItem from="1720434507542" duration="332000" />
+      <workItem from="1720446574972" duration="4712000" />
+      <workItem from="1720486828136" duration="3954000" />
     </task>
+    <task id="LOCAL-00001" summary="fix custo mer and login">
+      <option name="closed" value="true" />
+      <created>1720447326894</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1720447326894</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix giao dien">
+      <option name="closed" value="true" />
+      <created>1720448509974</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1720448509974</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix giao dien">
+      <option name="closed" value="true" />
+      <created>1720448520727</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1720448520727</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix giao dien">
+      <option name="closed" value="true" />
+      <created>1720448632662</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1720448632662</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,5 +276,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix custo mer and login" />
+    <MESSAGE value="fix giao dien" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix giao dien" />
   </component>
 </project>

@@ -14,6 +14,14 @@ public class Phone {
 
     public Phone() {
     }
+    public Phone(int id, String img, String color, String name, Long price, int quantity) {
+        this.id = id;
+        this.img = img;
+        this.color = color;
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
 
     public Phone(String name, String manufacture, Long price, int quantity, float size, String color, int ram, int battery) {
         this.name = name;

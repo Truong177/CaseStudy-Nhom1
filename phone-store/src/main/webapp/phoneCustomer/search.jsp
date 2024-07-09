@@ -36,9 +36,8 @@
                 <input type="hidden" name="source" value="customer">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Tìm kiếm</button>
             </form>
-            <a href="#">
-                <img src="/img/cart.png" height="24">
-                Giỏ Hàng
+            <a class="nav-link text-white" onclick="window.location.href ='phoneCustomer?action=openCart'">
+                <img src="/img/cart.png" height="42">
             </a>
         </div>
     </div>
@@ -46,7 +45,8 @@
 <div class="container-fluid mt-5 pt-3">
     <div class="row">
         <div class="col-md-12">
-            <h5><p>Kết quả tìm kiếm cho <span name ="search"></span></p> </h5>
+            <h5><p name="search">Kết quả tìm kiếm cho <span style="color: red">${search}</span></p> </h5>
+
             <div class="row">
                 <c:forEach var="phone" items="${phones}">
                     <div class="col-md-2">
