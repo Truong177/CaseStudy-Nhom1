@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -141,6 +142,26 @@
             color: #333;
             padding: 20px 0;
         }
+        .nav-tabs {
+            border-bottom: 1px solid #ddd;
+            background-color: red;
+        }
+
+        .nav-tabs .nav-link {
+            color: #333;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-weight: bold;
+        }
+
+        .nav-tabs .nav-link.active {
+            border-color: red;
+            color: red;
+            background-color: red;
+
+        }
+
+
 
     </style>
 
@@ -164,12 +185,13 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Tìm kiếm</button>
             </form>
-            <a class="nav-link text-white" href="#">
+            <a class="nav-link text-white" onclick="window.location.href ='phoneCustomer?action=openCart'">
                 <img src="/img/cart.png" height="42">
             </a>
         </div>
     </div>
 </nav>
+
 <div class="container product-detail">
     <div class="row">
         <div class="col-md-4">
@@ -178,10 +200,14 @@
         <div class="col-md-8">
             <div class="product-title">${phone.name}</div>
             <div class="product-info"><span>Hãng sản xuất:</span>${phone.manufacture}</div>
-            <div class="product-info"><span>Giá:</span> ${phone.price} VNĐ</div>
+            <div class="card-text text-danger">Giá bán: <fmt:formatNumber type="number" pattern="###,###" value="${phone.price}" /> VND</div>
             <div class="product-info"><span>Tình trạng:</span> Còn ${phone.quantity} sản phẩm</div>
-            <button class="btn btn-buy">Thêm vào giỏ hàng</button>
-            <button class="btn btn-buy">Đặt hàng</button>
+            <div><p name="message" style="color: #007bff ; margin-bottom:0px">${message}</p></div>
+            <form action="/phoneCustomer?action=addCart&id=${phone.id}" method="post">
+                <input type="hidden" name="id" value="${phone.id}">
+                <button class="btn btn-buy" type="submit">Thêm vào giỏ hàng</button>
+            </form>
+            <button class="btn btn-buy" onclick="window.location.href='/phoneCustomer?action=openCart'">Đặt hàng</button>
         </div>
     </div>
 

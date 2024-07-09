@@ -21,4 +21,14 @@ public interface IPhoneRepository {
     Phone findById(int id);
 
     List<Phone> findByManufacturer(String apple);
+
+    List<Phone> findAllCart();
+
+    boolean deleteProduct();
+
+    boolean deleteCart(int phoneId);
+
+    boolean checkInventoryById(int id);
+
+    void addCart(Phone phone);
 }

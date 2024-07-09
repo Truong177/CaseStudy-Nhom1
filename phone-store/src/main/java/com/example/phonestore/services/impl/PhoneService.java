@@ -48,4 +48,29 @@ public class PhoneService implements IPhoneService {
         return phoneRepository.findByManufacturer(samSung);
     }
 
+    @Override
+    public List<Phone> findAllCart() {
+        return phoneRepository.findAllCart();
+    }
+
+    @Override
+    public boolean deleteProduct() {
+        return phoneRepository.deleteProduct();
+    }
+
+    @Override
+    public boolean deleteCart(int phoneId) {
+        return phoneRepository.deleteCart(phoneId);
+    }
+
+    @Override
+    public boolean checkInventoryById(int id) {
+        return phoneRepository.checkInventoryById(id);
+    }
+
+    @Override
+    public void addCart(Phone phone) {
+        phoneRepository.addCart(phone);
+    }
+
 }
