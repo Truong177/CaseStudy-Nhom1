@@ -26,8 +26,8 @@
                 <li class="nav-item"><a class="nav-link text-white" href="${pageContext.request.contextPath}/phoneCustomer">Trang chủ</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="#">Điện Thoại Mới</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="#">Bán Chạy</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#">Giới Thiệu</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#">Liên Hệ</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="${pageContext.request.contextPath}/phoneCustomer/intro.jsp">Giới Thiệu</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="${pageContext.request.contextPath}/phoneCustomer/contact.jsp">Liên Hệ</a></li>
             </ul>
             <form class="form-inline my-2 my-lg-0 mr-3" action="${pageContext.request.contextPath}/phoneCustomer?action=search" method="post">
                 <input class="form-control mr-sm-2" type="search" name="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search">
