@@ -32,10 +32,7 @@ public class CustomerPhoneController extends HttpServlet {
                 getPhoneInfo(req, resp);
                 break;
             case "openCart":
-                List<Phone> phones = phoneService.findAllCart();
-                req.setAttribute("phones", phones);
-                RequestDispatcher dispatcher = req.getRequestDispatcher("/phoneCustomer/cart.jsp");
-                dispatcher.forward(req, resp);
+                openCart(req, resp);
                 break;
             case "deleteCart":
                 deleteCart(req, resp);
@@ -51,13 +48,21 @@ public class CustomerPhoneController extends HttpServlet {
                 break;
 
             default:
-                phones = phoneService.findAll();
+                List<Phone> phones = phoneService.findAll();
                 req.setAttribute("phones", phones);
-                dispatcher = req.getRequestDispatcher("/phoneCustomer/home.jsp");
+                RequestDispatcher dispatcher = req.getRequestDispatcher("/phoneCustomer/home.jsp");
                 dispatcher.forward(req, resp);
                 break;
         }
     }
+
+    private void openCart(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Phone> phones = phoneService.findAllCart();
+        req.setAttribute("phones", phones);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/phoneCustomer/cart.jsp");
+        dispatcher.forward(req, resp);
+    }
+
     private void showSamSungProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Phone> phones = phoneService.findByManufacturer("SamSung");
         req.setAttribute("phones", phones);
@@ -91,10 +96,7 @@ public class CustomerPhoneController extends HttpServlet {
         if (!isDeleted) {
             req.setAttribute("message", "Xóa không thành công.");
         } else {
-            List<Phone> phones = phoneService.findAllCart();
-            req.setAttribute("phones", phones);
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/phoneCustomer/cart.jsp");
-            dispatcher.forward(req, resp);
+            openCart(req, resp);
         }
     }
 
@@ -136,21 +138,18 @@ public class CustomerPhoneController extends HttpServlet {
 
     private void addCart(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, SQLException {
         int id = Integer.parseInt(req.getParameter("id"));
-//        boolean  check = phoneService.checkInventoryById(id);
+        boolean  check = phoneService.checkInventoryById(id);
         Phone phone = phoneService.findById(id);
-        phoneService.addCart(phone);
-        req.setAttribute("phone", phone);
-        req.setAttribute("message", "Đã thêm vào giỏ hàng");
-//        if (check == true) {
-//            phoneService.addCart(phone);
-//            req.setAttribute("phone", phone);
-//            req.setAttribute("message", "Đã thêm vào giỏ hàng");
-//        } else {
-//            req.setAttribute("phone", phone);
-//            req.setAttribute("message", "Bạn đã đặt quá số lượng tồn kho");
-//        }
-        // Hiển thị lại trang
-//
+        if (check) {
+            phoneService.addCart(phone);
+            req.setAttribute("phone", phone);
+            req.setAttribute("message", "Đã thêm vào giỏ hàng");
+        } else {
+            req.setAttribute("phone", phone);
+            req.setAttribute("message", "Bạn đã đặt quá số lượng tồn kho");
+        }
+//         Hiển thị lại trang
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("/phoneCustomer/phoneInfor.jsp");
         dispatcher.forward(req, resp);
     }

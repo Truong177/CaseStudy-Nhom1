@@ -259,25 +259,24 @@ public class PhoneRepository implements IPhoneRepository {
 
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        boolean isAvailable = false;
+        boolean isAvailable = true;
 
         try {
             preparedStatement = connection.prepareStatement(
                     "SELECT cart.quantity AS cart_quantity, product.quantity AS product_quantity " +
                             "FROM product " +
                             "JOIN cart ON cart.id_product = product.id_product " +
-                            "WHERE product.id_product = ? "
+                            "WHERE cart.id_product = ? "
             );
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
 
             // Kiểm tra số lượng tồn kho
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 int cartQuantity = resultSet.getInt("cart_quantity");
                 int productQuantity = resultSet.getInt("product_quantity");
-                if (cartQuantity < productQuantity) {
-                    isAvailable = true; // Sản phẩm có ít hơn số lượng trong kho
-                    break; // Thoát vòng lặp ngay khi không đủ hàng
+                if (cartQuantity >= productQuantity) {
+                    isAvailable = false; 
                 }
             }
         } catch (SQLException e) {

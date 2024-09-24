@@ -14,6 +14,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styleCustomer.css">
+    <style>
+        .full-screen-background {
+            background-image: url('https://www.example.com/your-image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-red" style="background-color: red">
@@ -54,15 +63,18 @@
     </div>
 </nav>
 <br/>
-<div class="container mt-5 pt-3">
-    <h2 style="color: red;">Ổ Quỷ Store</h2>
-    <p><i>Địa chỉ: 27 Tam Trinh, Hoàng Mai, Hà Nội - Điện Thoại: 0949534953</i></p>
-    <hr>
-    <br>
-    <div >
-        <p>Với hàng trăm loại sản phẩm từ các thương hiệu uy tín, chúng tôi mang đến cho bạn trải nghiệm mua sắm online tốt nhất. Thêm vào đó, <span style="color: red"> Ổ Quỷ</span> luôn có các chương trình khuyến mãi đang chờ đón bạn, không cần mã khuyến mãi, không giới hạn lượt đặt, tiết kiệm thời gian của bạn.</p>
-        <p>Đến với <span style="color: red">Ổ Quỷ</span>, bạn sẽ tìm thấy chiếc điện thoại phù hợp nhất cho bản thân mình! </p>
-    </div>
+<div class="container-fluid mt-5 pt-3 full-screen-background" style="background-image: url('https://www.androidauthority.com/wp-content/uploads/2022/09/Asus-ROG-6D-Ultimate-rear-display-scaled.jpeg');">
+   <div style="color: white">
+       <h2 style="color: red;">Ổ Quỷ Store</h2>
+       <p><i>Địa chỉ: 27 Tam Trinh, Hoàng Mai, Hà Nội - Điện Thoại: 0949534953</i></p>
+       <hr>
+       <br>
+       <div >
+           <p>Với hàng trăm loại sản phẩm từ các thương hiệu uy tín, chúng tôi mang đến cho bạn trải nghiệm mua sắm online tốt nhất. Thêm vào đó, <span style="color: red"> Ổ Quỷ</span> luôn có các chương trình khuyến mãi đang chờ đón bạn, không cần mã khuyến mãi, không giới hạn lượt đặt, tiết kiệm thời gian của bạn.</p>
+           <p>Đến với <span style="color: red">Ổ Quỷ</span>, bạn sẽ tìm thấy chiếc điện thoại phù hợp nhất cho bản thân mình! </p>
+       </div>
+   </div>
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

@@ -142,43 +142,44 @@
         </div>
     </div>
 </nav>
-<br>
-<br>
-<br>
-<br>
-<section class="contact" style="margin-left: 100px">
-    <h1 style="color: red; margin-bottom: 20px">Liên hệ với chúng tôi</h1>
+<div class="container" style=" width: 600px">
+    <section class="contact">
+        <h1 style="color: red; margin-bottom: 20px">Liên hệ với chúng tôi</h1>
 
-    <form action="contact" method="post">
-        <table border="1" cellpadding="5" style="border: red">
-            <tr>
-                <td>
-                    <input type="text" name="name" placeholder="Tên của bạn" required style="padding: 10px; margin: 10px">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="email" name="email" placeholder="Email" required style="padding: 10px; margin: 10px">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="text" name="phone" placeholder="Số điện thoại" required style="padding: 10px; margin: 10px">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <textarea name="message" placeholder="Nội dung" required style="width: 500px; padding: 10px; margin: 10px"></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" style="width: 100px; background-color: red; color: white; padding: 10px; margin: 10px">
-                </td>
-            </tr>
-        </table>
-    </form>
-</section>
+        <form action="contact" method="post">
+            <table border="1" cellpadding="5" style="border: red">
+                <tr>
+                    <td>
+                        <input type="text" name="name" placeholder="Tên của bạn" required style="padding: 10px; margin: 10px">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="email" name="email" placeholder="Email" required style="padding: 10px; margin: 10px">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="phone" placeholder="Số điện thoại" required style="padding: 10px; margin: 10px">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea name="message" placeholder="Nội dung" required style="width: 500px; padding: 10px; margin: 10px"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" style="width: 100px; background-color: red; color: white; padding: 10px; margin: 10px">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </section>
+</div>
+
+
+
 <footer class="bg-light p-3 mt-4">
     <div class="container text-center">
         <p>Địa chỉ: 27 Tam Trinh, Hoàng Mai, Hà Nội</p>
